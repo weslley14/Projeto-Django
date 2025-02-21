@@ -1,0 +1,13 @@
+{% extends 'produto/base.html' %}
+{% block conteudo %}
+<form action="{% url 'listar_items' %}" method="post"> 
+  {% csrf_token %}
+  <div style="text-align: center;" class="container" > 
+    <h1>Cadastro de Produtos</h1>
+    Nome: <input name="nome" class="form-control-sm" type="text"><br><br>
+    Número de Série: <input name="serie" class="form-control-sm" type="text"><br><br>
+    Quantidade: <input name="quantidade" class="form-control-sm" type="number"><br><br>
+    <button class="btn btn-success btn-lg">Salvar</button>
+  </div>
+</form>
+{% endblock%}

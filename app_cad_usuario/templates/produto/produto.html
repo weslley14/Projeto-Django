@@ -1,0 +1,28 @@
+{% extends 'produto/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <h1>Produtos Cadastrados!</h1>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>id_produtos</th>
+            <th>Nome</th>
+            <th>Número de Série</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+        </tr>
+        {% for produto in produto %}
+        <tr>
+            <td>{{produto.id_produto}}</td>
+            <td>{{produto.nome}}</td>
+            <td>{{produto.serie}}</td>
+            <td>{{produto.quantidade}}</td>
+            <td>
+                <a href="{% url 'atualizar_produto' produto.id_produto %}" class="btn btn-primary">Atualizar</a>
+                <a href="{% url 'deletar_produto' produto.id_produto %}" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir?')">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
